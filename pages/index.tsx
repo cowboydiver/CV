@@ -15,23 +15,6 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const mouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: e.clientX - 75,
-        y: e.clientY - 25,
-      });
-    };
-
-    window.addEventListener("mousemove", mouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", mouseMove);
-    };
-  }, []);
-
   return (
     <div>
       <Head>
@@ -39,12 +22,7 @@ const Home: NextPage = () => {
         <meta name="description" content="CV of Jan Carus" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <motion.div
-        initial={{ x: 0, y: 0 }}
-        animate={{ x: mousePosition.x, y: mousePosition.y }}
-      >
-        <Button position="fixed">Hire me, please!</Button>
-      </motion.div>
+
       <Flex
         height="100vh"
         width="100vw"
@@ -63,7 +41,15 @@ const Home: NextPage = () => {
               <Heading color="white">Hello, there! I am Jan Carus</Heading>
             </motion.div>
           </Box>
-          <Box bg="teal.400"></Box>
+          <Box>
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 2 }}
+            >
+              <Button>Hire me!</Button>
+            </motion.div>
+          </Box>
         </VStack>
       </Flex>
     </div>
