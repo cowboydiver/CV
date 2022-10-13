@@ -9,7 +9,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import * as React from "react";
-import motion from "framer-motion";
+import { motion } from "framer-motion";
 import { ImLinkedin2, ImGithub } from "react-icons/im";
 import IconOnlyButton from "./iconOnlyButton";
 
@@ -25,26 +25,25 @@ function Bio() {
       alignItems="center"
       direction={{ base: "column", md: "row-reverse" }}
     >
-      <Box>
+      <motion.div initial={{ x: "calc(100vw + 500px)" }} animate={{ x: 0 }}>
         <Image
           alt="Jan Carus"
           src="/jan.png"
           w={{ base: "250px", md: "500px" }}
           borderRadius="50%"
         />
-      </Box>
-      <VStack spacing={0} alignItems="flex-start">
+      </motion.div>
+      <VStack spacing={0} alignItems={{ base: "center", md: "flex-start" }}>
         <Text
-          fontSize={{ base: "72px", md: "96px" }}
+          fontSize={{ base: "48px", md: "89px" }}
           color="whitesmoke"
           letterSpacing="tight"
         >
-          Jan Carus
+          JAN CARUS
         </Text>
         <Text
           fontSize={{ base: "xl", md: "2xl" }}
           color="whitesmoke"
-          textAlign={{ base: "center", md: "left" }}
           letterSpacing={8}
         >
           Frontend Developer
@@ -57,11 +56,11 @@ function Bio() {
           w="full"
         >
           <IconOnlyButton
-            icon={<ImLinkedin2 size="auto" />}
+            icon={<ImLinkedin2 size="100%" />}
             link="https://www.linkedin.com/in/jdetlefsen/"
           />
           <IconOnlyButton
-            icon={<ImGithub size="auto" />}
+            icon={<ImGithub size="100%" />}
             link="https://github.com/cowboydiver"
           />
         </HStack>
