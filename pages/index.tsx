@@ -5,6 +5,7 @@ import {
   Heading,
   VStack,
   StackDivider,
+  Container,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
@@ -14,23 +15,17 @@ import JobItem from "../components/jobItem";
 
 const Home: NextPage = () => {
   return (
-    <Box>
+    <Container maxW="conntainer.xl" p={0}>
       <Head>
         <title>Jan Carus</title>
         <meta name="description" content="CV of Jan Carus" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Flex
-        justifyContent="center"
-        alignItems="center"
-        height="100vh"
-        width="100vw"
-        background="blackAlpha.900"
-      >
+      <Flex height="100vh" width="100vw" py={20} background="blackAlpha.900">
         <Bio></Bio>
       </Flex>
-    </Box>
+    </Container>
   );
 };
 

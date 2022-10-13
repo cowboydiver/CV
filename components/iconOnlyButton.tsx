@@ -21,8 +21,13 @@ function IconOnlyButton({
       as="button"
       color={color}
       bg={bgColor}
-      p={3}
-      boxShadow={`2px 2px ${shadowColor}`}
+      p={2}
+      w={{ base: "64px", md: "48px" }}
+      h={{ base: "64px", md: "48px" }}
+      boxShadow={{
+        base: `4px 4px ${shadowColor}`,
+        md: `2px 2px ${shadowColor}`,
+      }}
     >
       {icon}
     </Box>
